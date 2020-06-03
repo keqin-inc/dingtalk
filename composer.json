@@ -1,0 +1,26 @@
+{
+    "name": "keqin/dingtalk",
+    "description": "克勤钉钉扩展包",
+    "autoload": {
+        "psr-4": {
+            "Keqin\\Dingtalk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "DaiJie",
+            "email": "daijie@php.net"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Keqin\\Dingtalk\\ServiceProvider"
+            ],
+            "aliases": {
+                "Dingtalk": "Keqin\\Dingtalk\\Dingtalk"
+            }
+        }
+    },
+    "require": {}
+}
