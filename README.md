@@ -2,3 +2,41 @@
 
 ## 安装
 `composer require keqin/dingtalk`
+
+## 配置
+`config/dingtalk.php`
+
+## AccessToken
+
+### 自动更新
+安装后自动注入 Artisan 命令 `dingtalk:accesstoken --sync` 即可自动更新。Token 会自动存入 Laravel Cache 中。
+
+使用 `dingtalk:accesstoken --show` 查看最新的 Token 信息。
+
+### 手动访问 Access Token
+
+`\Dingtalk::accessToken()` 可访问到 Dingtalk AccessToken 对象，支持转成字符串，为当前 AccessToken。
+
+## 调用钉钉接口
+
+Dingtalk 支持 get 和 post 接口，url 中的 access_token 可以省略，库会自动补上。
+
+`Dingtalk::get($url, $queryString = [])`
+`Dingtalk::post($url, $body)`
+
+返回了 \Http::get 和 \Http::post 的对象。
+
+### 用法举例
+
+```php
+$list = \Dingtalk::get('topapi/role/list')->json();
+```
+
+### 错误处理
+默认情况下 errcode 不为 0，将抛出 Exception。如果希望直接返回，可以
+
+```php
+\Dingtalk::forceReturn()
+    ->get('topapi/role/list')
+    ->json()
+```

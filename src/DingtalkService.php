@@ -40,6 +40,7 @@ class DingtalkService
     public function forceReturn()
     {
         $this->forceReturn = true;
+        return $this;
     }
 
     public function buildUrl($url, $queryString = [])
