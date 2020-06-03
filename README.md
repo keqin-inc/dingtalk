@@ -3,8 +3,7 @@
 ## 安装
 `composer require keqin/dingtalk`
 
-## 配置
-`config/dingtalk.php`
+安装完成后，使用 `php artisan vendor:publish --provider="Keqin\Dingtalk\ServiceProvider"` 自动生成 `config/dingtalk.php` 和 views: `resources/views/ddlogin.blade.php` 用于钉钉一键登录。
 
 ## AccessToken
 
@@ -21,8 +20,8 @@
 
 Dingtalk 支持 get 和 post 接口，url 中的 access_token 可以省略，库会自动补上。
 
-`Dingtalk::get($url, $queryString = [])`
-`Dingtalk::post($url, $body)`
+- `Dingtalk::get($url, $queryString = [])`
+- `Dingtalk::post($url, $body)`
 
 返回了 \Http::get 和 \Http::post 的对象。
 
