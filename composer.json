@@ -23,8 +23,10 @@
             }
         }
     },
-    "require": {},
+    "require": {
+    },
     "require-dev": {
-        "orchestra/testbench": "^5.3"
+        "orchestra/testbench": "^5.3",
+        "phpunit/phpunit": "^9.2"
     }
 }
