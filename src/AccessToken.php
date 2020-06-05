@@ -21,6 +21,7 @@ class AccessToken
     public function gateway($gateway)
     {
         $this->gateway = $gateway;
+        return $this;
     }
 
     function __toString()

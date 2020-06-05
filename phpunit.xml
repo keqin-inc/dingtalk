@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpunit colors="true" bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="Initial tests">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="DINGTALK_CONNECT_URL" value="http://example.com"/>
+        <env name="DINGTALK_CONNECT_APPID" value="appid123"/>
+        <env name="DINGTALK_CONNECT_APPSECRET" value="appsecret321"/>
+        <env name="DINGTALK_APP_KEY" value="appkey"/>
+        <env name="DINGTALK_APP_SECRET" value="secret..."/>
+        <env name="DINGTALK_APP_CACHE_KEYNAME" value="cachekeyname"/>
+    </php>
+</phpunit>

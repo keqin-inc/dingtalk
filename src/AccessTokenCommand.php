@@ -10,16 +10,20 @@ class AccessTokenCommand extends Command
     public function handle()
     {
         $shouldSync = $this->option('sync');
+        $shouldShow = $this->option('show');
         if ($shouldSync) {
-            $token = \Dingtalk::accessToken();
+            $token = \Keqin\Dingtalk\Dingtalk::accessToken();
             $token->sync();
             $this->info('synced!');
         }
-        $shouldShow = $this->option('show');
         if ($shouldShow) {
             $token = \Dingtalk::accessToken();
             $this->info('AppKey: ' . $token->appKey);
             $this->info('AccessToken: ' . strval($token));
+        }
+        if(!$shouldSync && !$shouldShow) {
+            $this->info($this->description);
+            $this->info($this->signature);
         }
     }
 }

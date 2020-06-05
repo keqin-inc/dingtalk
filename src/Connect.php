@@ -25,8 +25,8 @@ class Connect
     {
         $appKey = data_get($this->config, 'connect.appid');
         $appSecret = data_get($this->config, 'connect.appsecret');
-        $signature = $this->sign($time, $appSecret);
         $time = $this->time();
+        $signature = $this->sign($time, $appSecret);
         $url = "{$this->gateway}/sns/getuserinfo_bycode?accessKey=${appKey}&timestamp=${time}&signature=${signature}";
         $response = \Http::post($url, [
             'tmp_auth_code' => $code
@@ -38,7 +38,7 @@ class Connect
      * 当前时间
      * @return time in ms
      */
-    private function time()
+    private function time(): int
     {
         return intval(microtime(true) * 1000);
     }
@@ -50,7 +50,7 @@ class Connect
      * @return string $signature 签名
      * @link https://ding-doc.dingtalk.com/doc#/faquestions/hxs5v9
      */
-    private function sign($time, $appSecret)
+    private function sign($time, $appSecret): string
     {
         $signatureBin = hash_hmac('sha256', $time, $appSecret, true);
         $signature = urlencode(base64_encode($signatureBin));
