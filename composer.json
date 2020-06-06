@@ -34,5 +34,8 @@
         "orchestra/testbench": "^5.3",
         "phpunit/phpunit": "^9.2",
         "guzzlehttp/guzzle": "^6.5"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
 }
