@@ -1,6 +1,5 @@
 {
     "name": "keqin/dingtalk",
-    "version": "0.1.0",
     "description": "克勤钉钉扩展包",
     "autoload": {
         "psr-4": {
@@ -37,5 +36,6 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit"
-    }
+    },
+    "license": "MIT"
 }
