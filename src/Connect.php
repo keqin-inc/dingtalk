@@ -8,6 +8,8 @@ namespace Keqin\Dingtalk;
  */
 class Connect
 {
+    use Timestamp;
+
     private $config;
     public $gateway = 'https://oapi.dingtalk.com';
 
@@ -25,22 +27,13 @@ class Connect
     {
         $appKey = data_get($this->config, 'connect.appid');
         $appSecret = data_get($this->config, 'connect.appsecret');
-        $time = $this->time();
+        $time = $this->timestamp();
         $signature = $this->sign($time, $appSecret);
         $url = "{$this->gateway}/sns/getuserinfo_bycode?accessKey=${appKey}&timestamp=${time}&signature=${signature}";
         $response = \Http::post($url, [
             'tmp_auth_code' => $code
         ]);
         return $response->json();
-    }
-
-    /**
-     * 当前时间
-     * @return time in ms
-     */
-    private function time(): int
-    {
-        return intval(microtime(true) * 1000);
     }
 
     /**

@@ -17,5 +17,11 @@ return [
         'secret' => env('DINGTALK_APP_SECRET'),
         # 缓存 AccessToken 的键名
         'cache_keyname' => env('DINGTALK_APP_CACHE_KEYNAME', 'dingtalk_access_token'),
+    ],
+    /**
+     * 机器人的默认配置
+     */
+    'robot' => [
+        'appsecret' => env('DINGTALK_ROBOT_APPSECRET'),
     ]
 ];

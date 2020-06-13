@@ -1,6 +1,7 @@
 <?php
-
 namespace Keqin\Dingtalk;
+
+use Illuminate\Routing\Router;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -13,6 +14,9 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->publishes([
             __DIR__.'/resources/views/ddlogin.blade.php' => resource_path('views/ddlogin.blade.php'),
         ]);
+        
+        $router = $this->app->make(Router::class);
+        $router->aliasMiddleware('dingtalk-robot-auth', RobotOutgoingMiddleware::class);
 
         if ($this->app->runningInConsole()) {
             $this->commands([
