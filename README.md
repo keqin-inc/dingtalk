@@ -25,7 +25,7 @@ Dingtalk 支持 get 和 post 接口，url 中的 access_token 可以省略，库
 - `Dingtalk::get($url, $queryString = [])`
 - `Dingtalk::post($url, $body)`
 
-返回了 \Http::get 和 \Http::post 的对象。
+返回了 \Http::get 和 \Http::post 的对象。响应对象的[具体用法参见 Laravel 文档](https://laravel.com/docs/7.x/http-client#making-requests)。
 
 ### 用法举例
 
