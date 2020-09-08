@@ -2,6 +2,8 @@
 
 namespace Keqin\Dingtalk;
 
+use Illuminate\Support\Facades\Http;
+
 class DingtalkService
 {
     private $config;
@@ -63,12 +65,12 @@ class DingtalkService
     public function post($url, $body)
     {
         $url = $this->buildUrl($url);
-        return \Http::post($url, $body);
+        return Http::post($url, $body);
     }
 
     public function get($url, $queryString = [])
     {
         $url = $this->buildUrl($url, $queryString);
-        return \Http::get($url);
+        return Http::get($url);
     }
 }

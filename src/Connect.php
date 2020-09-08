@@ -2,6 +2,8 @@
 
 namespace Keqin\Dingtalk;
 
+use Illuminate\Support\Facades\Http;
+
 /**
  * 钉钉身份验证
  * @link https://ding-doc.dingtalk.com/doc#/serverapi2/vt6khw
@@ -30,7 +32,7 @@ class Connect
         $time = $this->timestamp();
         $signature = $this->sign($time, $appSecret);
         $url = "{$this->gateway}/sns/getuserinfo_bycode?accessKey=${appKey}&timestamp=${time}&signature=${signature}";
-        $response = \Http::post($url, [
+        $response = Http::post($url, [
             'tmp_auth_code' => $code
         ]);
         return $response->json();

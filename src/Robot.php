@@ -1,6 +1,7 @@
 <?php
 namespace Keqin\Dingtalk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class Robot
 {
@@ -87,7 +88,7 @@ class Robot
             $url .= '&timestamp=' . $timestamp . '&sign=' . urlencode($sign);
         }
 
-        $res = \Http::post($url, $body);
+        $res = Http::post($url, $body);
         return $res->json();
     }
 

@@ -1,6 +1,8 @@
 <?php
 namespace Keqin\Dingtalk;
 
+use Illuminate\Support\Facades\Http;
+
 class AccessToken
 {
     public $appKey = '';
@@ -43,7 +45,7 @@ class AccessToken
     public function fetch()
     {
         $url = $this->gateway.'/gettoken?appkey='.$this->appKey.'&appsecret='.$this->appSecret;
-        $response = \Http::get($url);
+        $response = Http::get($url);
         $data = $response->json();
         $errcode = data_get($data, 'errcode');
         $errmsg = data_get($data, 'errmsg');
