@@ -1,6 +1,6 @@
 # keqin/dingtalk 克勤 Laravel 钉钉扩展包
 
-![PHP Composer](https://github.com/keqin-inc/dingtalk/workflows/PHP%20Composer/badge.svg)
+[![PHP Composer](https://github.com/keqin-inc/dingtalk/workflows/PHP%20Composer/badge.svg)](https://github.com/keqin-inc/dingtalk/actions)
 
 ## 安装
 `composer require keqin/dingtalk`
